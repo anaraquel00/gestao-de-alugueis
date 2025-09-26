@@ -21,6 +21,7 @@ export class ImovelService {
   // Isso segue a boa prática de não permitir que componentes externos modifiquem o estado diretamente.
   public imoveis = this.#imoveis.asReadonly();
 
+
   constructor() {
     // 'effect' é uma função que roda sempre que um sinal lido dentro dela muda.
     // Aqui, usamos para salvar automaticamente a lista de imóveis no localStorage
@@ -42,20 +43,23 @@ export class ImovelService {
   #seedInitialData(): void {
     const dadosIniciais: Imovel[] = [
         {
-        id: crypto.randomUUID(),
-        titulo: 'Apartamento Aconchegante no Centro',
-        endereco: 'Rua das Flores, 123, Centro',
-        numeroQuartos: 2,
-        valorAluguel: 2500,
-        status: 'disponivel',
-      },
-      {
+          id: crypto.randomUUID(),
+          titulo: 'Apartamento Aconchegante no Centro',
+          endereco: 'Rua das Flores, 123, Centro',
+          numeroQuartos: 2,
+          valorAluguel: 2500,
+          status: 'disponivel',
+          image: 'images/apartamento.jpg',
+          images: []
+        },      {
         id: crypto.randomUUID(),
         titulo: 'Casa Espaçosa com Quintal',
         endereco: 'Avenida das Árvores, 456, Bairro Verde',
         numeroQuartos: 3,
         valorAluguel: 3800,
+        images: [],
         status: 'alugado',
+        image: 'images/casa.jpg',
       },
       {
         id: crypto.randomUUID(),
@@ -64,6 +68,8 @@ export class ImovelService {
         numeroQuartos: 1,
         valorAluguel: 1800,
         status: 'disponivel',
+        image: 'images/studio-moderno.jpg',
+        images: [],
       },
     ];
     this.#imoveis.set(dadosIniciais);

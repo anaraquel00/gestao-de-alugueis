@@ -11,8 +11,10 @@ import { Clientes } from './pages/cadastro/clientes/clientes';
 
 // O array 'routes' define o mapa de navegação da nossa aplicação.
 export const routes: Routes =  [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full',
 
+   },
+  {path: 'home', component: Home},
 
 
   { path: 'imovel-list', component: ImovelListComponent},

@@ -18,5 +18,7 @@ export interface Imovel {
   endereco: string;
   numeroQuartos: number;
   valorAluguel: number;
+  image: string;
+  images?: string[];
   status: ImovelStatus;
 }
