@@ -1,0 +1,34 @@
+<div class="cadastro-background">
+  <div class="cadastro-container">
+    <mat-card>
+      <mat-card-title>📇 Cadastro</mat-card-title>
+
+      <form [formGroup]="form" (ngSubmit)="salvar()">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" type="email" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Senha</mat-label>
+          <input matInput formControlName="senha" type="password" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Nome</mat-label>
+          <input matInput formControlName="nome" type="text" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Telefone</mat-label>
+          <input matInput formControlName="telefone" type="tel" />
+        </mat-form-field>
+
+        <div class="buttons">
+          <button mat-stroked-button color="warn" type="button" (click)="cancelar()">Cancelar</button>
+          <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Salvar</button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="container">
+  <h1>Imóveis Disponíveis</h1>
+
+  @if (imoveis().length > 0) {
+    <div class="imovel-grid">
+      @for (imovel of imoveis(); track imovel.id) {
+        <mat-card class="imovel-card">
+          <mat-card-header>
+            <mat-card-title>{{ imovel.titulo }}</mat-card-title>
+            <mat-card-subtitle>{{ imovel.endereco }}</mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-card-content>
+            <mat-chip-listbox>
+              <mat-chip
+                [color]="imovel.status === 'disponivel' ? 'primary' : 'warn'"
+                selected
+              >
+                {{ imovel.status }}
+              </mat-chip>
+            </mat-chip-listbox>
+            <p>
+              <strong>Quartos:</strong> {{ imovel.numeroQuartos }} <br />
+              <strong>Aluguel:</strong> {{ imovel.valorAluguel | currency: 'BRL' }} / mês
+            </p>
+          </mat-card-content>
+
+          <mat-card-actions>
+            <button mat-button>VER DETALHES</button>
+            <button mat-button color="primary">EDITAR</button>
+          </mat-card-actions>
+        </mat-card>
+      }
+    </div>
+  } @else {
+    <div class="empty-state">
+      <p>Nenhum imóvel cadastrado ainda.</p>
+    </div>
+  }
+</div>

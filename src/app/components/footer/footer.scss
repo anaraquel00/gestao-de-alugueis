@@ -1,0 +1,13 @@
+.footer {
+  // Posiciona o rodapé fixo na parte de baixo da tela
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  // Apenas para centralizar o texto
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px; // Altura do rodapé
+}

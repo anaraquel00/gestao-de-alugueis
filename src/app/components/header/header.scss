@@ -1,0 +1,17 @@
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.mat-button {
+  margin-left: 10px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
