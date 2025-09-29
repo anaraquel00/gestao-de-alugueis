@@ -15,3 +15,23 @@ a {
     text-decoration: underline;
   }
 }
+
+
+.desktop-menu {
+  display: none; // Escondido por padrão em telas pequenas
+}
+
+.mobile-menu {
+  display: block; // Visível por padrão em telas pequenas
+}
+
+// Media Query para telas maiores (ex: tablets e desktops)
+@media (min-width: 768px) {
+  .desktop-menu {
+    display: block; // Mostra o menu completo
+  }
+
+  .mobile-menu {
+    display: none; // Esconde o menu hambúrguer
+  }
+}

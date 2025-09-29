@@ -1,29 +1,60 @@
 .welcome-container {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 50px;
-  gap: 40px;
-  min-height: 70vh;
+  flex-direction: column;
+  text-align: center;
+  overflow: hidden; // Garante que o vídeo não "vaze"
+
 }
 
 .welcome-text {
-  max-width: 500px;
+  max-width: 500px;color: white; // Cor do texto para contrastar com o fundo escuro
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5); // Fundo semi-transparente para melhorar a legibilidade
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 600px;
 
   h1 {
-    font-size: 1.7em;
+    font-size: 2.5em;
     font-weight: bold;
-    justify-content: center;
-    align-items: center;
+    margin-bottom: 0.5em;
   }
 
   p {
     font-size: 1.2em;
-    margin-bottom: 30px;
+    margin-bottom: 1.5em;
   }
 }
 
-.welcome-image img {
-  max-width: 400px;
-  border-radius: 8px;
+.welcome-video video {
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; // Coloca o vídeo atrás de todo o conteúdo
+// Adiciona um overlay escuro para melhorar a legibilidade do texto
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.603);
+  }
+
+  }
+video {
+  width: 100%;
+  height: 100%;
+  // Garante que o vídeo cubra todo o container sem distorcer
+  object-fit: cover;
+
 }

@@ -3,11 +3,22 @@
   <span>Fuctura Imobiliaria</span>
   <span class="spacer"></span>
 
-
+  <div class="desktop-menu">
     <a mat-button routerLink="/home">Home</a>
     <a mat-button routerLink="/cadastro">Cadastrar locatario</a>
     <a mat-button routerLink="/imovel-list">Lista de imoveis</a>
     <a mat-button routerLink="/about">Sobre nos</a>
+  </div>
 
-
- </mat-toolbar>
+  <div class="mobile-menu">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <a mat-menu-item routerLink="/home">Home</a>
+      <a mat-menu-item routerLink="/cadastro">Cadastrar locatario</a>
+      <a mat-menu-item routerLink="/imovel-list">Lista de imoveis</a>
+      <a mat-menu-item routerLink="/about">Sobre nos</a>
+    </mat-menu>
+  </div>
+</mat-toolbar>

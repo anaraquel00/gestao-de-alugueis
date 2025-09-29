@@ -1,26 +1,19 @@
-.about-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 50px;
-  gap: 40px;
-  min-height: 70vh;
+.page-container {
+  // Limita a largura máxima do conteúdo para melhor legibilidade
+  max-width: 800px;
+
+  // Centraliza o container horizontalmente na página
+  margin: 0 auto;
+
+  // Adiciona espaçamento interno (vertical e horizontal)
+  padding: 40px 20px;
+
+  // Melhora o espaçamento entre as linhas do texto
+  line-height: 1.6;
 }
 
-.about-text {
-  max-width: 500px;
-
-  h1 {
-    font-size: 1.7em;
-    font-weight: bold;
-    justify-content: center;
-    align-items: center;
-  }
-
-  p {
-    font-size: 1.2em;
-    margin-bottom: 30px;
-  }
+h1 {
+  margin-bottom: 20px;
 }
 
 .about-image img {
