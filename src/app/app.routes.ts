@@ -9,6 +9,8 @@ import { Clientes } from './pages/cadastro/clientes/clientes';
 import { ImovelDetalheComponent } from './pages/features/imoveis/imovel-detalhe/imovel-detalhe';
 import { ImovelEditComponent } from './pages/features/imoveis/imovel-edit/imovel-edit';
 import { ImovelCadastroComponent } from './pages/features/imoveis/imovel-cadastro/imovel-cadastro';
+import { ImovelAssociarLocatarioComponent } from './pages/features/imoveis/imovel-associar-locatario/imovel-associar-locatario';
+
 // O array 'routes' define o mapa de navegação da nossa aplicação.
 export const routes: Routes =  [
   { path: '', redirectTo: 'home', pathMatch: 'full',
@@ -18,9 +20,10 @@ export const routes: Routes =  [
 
 
      { path: 'imovel-list', component: ImovelListComponent },
-{ path: 'imovel/cadastro', component: ImovelCadastroComponent },
-      {path: 'imovel/detalhe/:id', component: ImovelDetalheComponent },
-      { path: 'imovel/edit/:id', component: ImovelEditComponent },
+     { path: 'imovel/cadastro', component: ImovelCadastroComponent },
+     { path: 'imovel/detalhe/:id', component: ImovelDetalheComponent },
+     { path: 'imovel/edit/:id', component: ImovelEditComponent },
+     { path: 'imovel/associar/:id', component: ImovelAssociarLocatarioComponent },
 
     { path :'about', component: About},
 

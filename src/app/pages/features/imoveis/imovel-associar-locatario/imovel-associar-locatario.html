@@ -1,0 +1,27 @@
+<div class="container">
+  @if(imovel(); as imovelData) {
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Alugar Imóvel: {{ imovelData.titulo }}</mat-card-title>
+        <mat-card-subtitle>Selecione um locatário da lista para associar a este imóvel.</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-radio-group [(ngModel)]="selectedLocatarioId" class="locatario-list">
+          @for(locatario of locatarios(); track locatario.id) {
+            <mat-radio-button [value]="locatario.id" class="locatario-option">
+              {{ locatario.nome }} ({{ locatario.email }})
+            </mat-radio-button>
+          }
+        </mat-radio-group>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-stroked-button [routerLink]="['/imovel/detalhe', imovelData.id]">Cancelar</button>
+        <button mat-raised-button color="primary" (click)="associarLocatario()" [disabled]="!selectedLocatarioId">
+          Confirmar Aluguel
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  } @else {
+    <p>Imóvel não encontrado.</p>
+  }
+</div>

@@ -27,6 +27,16 @@
         </mat-chip-listbox>
       </mat-card-content>
       <mat-card-actions>
+        @if (imovelData.status === 'disponivel') {
+    <a mat-raised-button color="primary" [routerLink]="['/imovel/associar', imovelData.id]">
+      Alugar para um Locatário
+    </a>
+      }
+      @if (imovelData.status === 'alugado') {
+    <button mat-stroked-button color="warn" (click)="rescindirContrato()">
+      Rescindir Contrato
+    </button>
+    }
         <a mat-stroked-button routerLink="/imovel-list">VOLTAR PARA A LISTA</a>
       </mat-card-actions>
     </mat-card>

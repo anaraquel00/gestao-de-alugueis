@@ -143,4 +143,20 @@ export class ImovelService {
     this.#imoveis.update(imoveis => imoveis.filter(imovel => imovel.id !== id));
 
   }
+   rescindirContrato(id: string): void {
+    this.#imoveis.update(imoveis =>
+      imoveis.map(imovel => {
+        if (imovel.id === id) {
+          // Retorna uma cópia do imóvel com o status e o locatarioId atualizados
+          return {
+            ...imovel,
+            status: 'disponivel',
+            locatarioId: undefined // Remove a associação com o locatário
+          };
+        }
+        return imovel;
+      })
+    );
+  }
+
 }

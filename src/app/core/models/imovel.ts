@@ -20,5 +20,6 @@ export interface Imovel {
   valorAluguel: number;
   image: string;
   images?: string[];
+  locatarioId?: string;
   status: ImovelStatus;
 }
