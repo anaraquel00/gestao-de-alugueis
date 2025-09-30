@@ -2,7 +2,7 @@
 
  Este projeto é uma Single-Page Application (SPA) desenvolvida em Angular, criada como solução para o desafio de frontend da Fuctura. O objetivo é fornecer uma interface moderna, responsiva e intuitiva para o gerenciamento de aluguéis de imóveis.
 
-**[Acesse a demonstração ao vivo aqui\!](https://www.google.com/search?q=https://anaraquel00.github.io/gestao-de-alugueis/)** \#\# 🚀 Objetivo
+**[Acesse a demonstração ao vivo aqui\!](https://anaraquel00.github.io/gestao-de-alugueis/)** \#\# 🚀 Objetivo
 
 Desenvolver uma SPA que permita gerenciar o ciclo de vida completo do aluguel de imóveis, desde o cadastro até a associação com locatários, com foco em uma experiência de usuário limpa e acessível, mesmo para usuários com pouca experiência técnica.
 
