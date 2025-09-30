@@ -1,59 +1,85 @@
-# GestaoDeAlugueis
+# Gestão de Aluguéis - Fuctura Imobiliária
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.4.
+ Este projeto é uma Single-Page Application (SPA) desenvolvida em Angular, criada como solução para o desafio de frontend da Fuctura. O objetivo é fornecer uma interface moderna, responsiva e intuitiva para o gerenciamento de aluguéis de imóveis.
 
-## Development server
+**[Acesse a demonstração ao vivo aqui\!](https://www.google.com/search?q=https://SEU-USUARIO-GITHUB.github.io/gestao-de-alugueis/)** \#\# 🚀 Objetivo
 
-To start a local development server, run:
+Desenvolver uma SPA que permita gerenciar o ciclo de vida completo do aluguel de imóveis, desde o cadastro até a associação com locatários, com foco em uma experiência de usuário limpa e acessível, mesmo para usuários com pouca experiência técnica.
 
-```bash
-ng serve
-```
+## ✨ Funcionalidades Implementadas
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+A aplicação implementa um CRUD (Create, Read, Update, Delete) completo para a gestão de imóveis e locatários.
 
-## Code scaffolding
+  * **Listagem de Imóveis:** Visualização de todos os imóveis em formato de cards responsivos.
+  * **Cadastro de Imóveis:** Formulário para adicionar um novo imóvel, incluindo upload de imagem.
+  * **Edição de Imóveis:** Formulário pré-preenchido para alterar qualquer informação de um imóvel existente.
+  * **Exclusão de Imóveis:** Opção para remover um imóvel do sistema, com diálogo de confirmação.
+  * **Detalhes do Imóvel:** Página dedicada para visualizar todas as informações de um imóvel, incluindo dados do locatário associado.
+  * **Gestão de Locatários:**
+      * Cadastro de novos locatários.
+      * Associação de um locatário a um imóvel disponível, alterando o status para "alugado".
+      * Rescisão de contrato, desassociando o locatário e tornando o imóvel "disponível" novamente.
+  * **Design Responsivo:** A interface se adapta elegantemente a dispositivos móveis, tablets e desktops.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+*(Em desenvolvimento: Filtragem e busca de imóveis.)*
 
-```bash
-ng generate component component-name
-```
+## 🛠️ Tecnologias e Decisões Técnicas
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Este projeto foi construído utilizando as versões mais recentes do Angular e segue as melhores práticas de desenvolvimento frontend.
 
-```bash
-ng generate --help
-```
+  * **Framework:** Angular 20+
+  * **Linguagem:** TypeScript
+  * **Arquitetura:**
+      * **Componentes Standalone:** Utilização da arquitetura moderna do Angular, sem a necessidade de `NgModules`, para componentes mais simples e reutilizáveis.
+      * **Estrutura de Pastas:** Organização modular por `core` (serviços e modelos), `pages` (componentes de rota) e `components` (componentes reutilizáveis).
+  * **Gerenciamento de Estado:**
+      * **Angular Signals:** Para um gerenciamento de estado reativo, performático e sem boilerplate.
+      * **Persistência de Dados:** O estado da aplicação (imóveis e locatários) é persistido localmente no `localStorage` do navegador, simulando um backend.
+  * **UI e Estilização:**
+      * **Angular Material:** Utilizado para a base de componentes de UI, como cards, botões, formulários e a toolbar.
+      * **SCSS:** Para estilização com CSS aninhado, variáveis e media queries para responsividade.
+  * **Formulários:**
+      * **Reactive Forms:** Para a construção de formulários robustos, com validação e controle total sobre o estado dos dados.
+  * **Navegação:**
+      * **Angular Router:** Para gerenciar a navegação entre as diferentes páginas da aplicação.
+  * **Otimização:**
+      * **`NgOptimizedImage`:** Utilizada para o carregamento otimizado de imagens, aplicando lazy loading automaticamente.
 
-## Building
+## ⚙️ Como Executar Localmente
 
-To build the project run:
+Para rodar este projeto na sua máquina, siga os passos abaixo.
 
-```bash
-ng build
-```
+### Pré-requisitos
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+  * [Node.js](https://nodejs.org/) (versão LTS recomendada)
+  * [Angular CLI](https://angular.dev/cli) instalado globalmente (`npm install -g @angular/cli`)
 
-## Running unit tests
+### Instalação e Execução
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+1.  **Clone o repositório:**
 
-```bash
-ng test
-```
+    ```bash
+    git clone https://github.com/SEU-USUARIO/gestao-de-alugueis.git
+    ```
 
-## Running end-to-end tests
+2.  **Navegue até a pasta do projeto:**
 
-For end-to-end (e2e) testing, run:
+    ```bash
+    cd gestao-de-alugueis
+    ```
 
-```bash
-ng e2e
-```
+3.  **Instale as dependências:**
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+    ```bash
+    npm install
+    ```
 
-## Additional Resources
+4.  **Inicie o servidor de desenvolvimento:**
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+    ```bash
+    ng serve
+    ```
+
+5.  Abra seu navegador e acesse `http://localhost:4200/`. A aplicação recarregará automaticamente se você modificar qualquer arquivo-fonte.
+
+-----
