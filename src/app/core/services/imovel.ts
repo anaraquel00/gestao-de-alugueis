@@ -36,22 +36,22 @@ export class ImovelService {
       this.#saveToStorage(this.#imoveis());
     });
   }
-   /**
-   * E AQUI estamos DEFININDO O MÉTODO (a ação)
-   * Note a sintaxe: nome, parênteses (), e as chaves {} com a lógica dentro.
-   */
+  /**
+  * E AQUI estamos DEFININDO O MÉTODO (a ação)
+  * Note a sintaxe: nome, parênteses (), e as chaves {} com a lógica dentro.
+  */
   #seedInitialData(): void {
     const dadosIniciais: Imovel[] = [
-        {
-          id: crypto.randomUUID(),
-          titulo: 'Apartamento Aconchegante no Centro',
-          endereco: 'Rua das Flores, 123, Centro',
-          numeroQuartos: 2,
-          valorAluguel: 2500,
-          status: 'disponivel',
-          image: 'images/apartamento.jpg',
-          images: []
-        },      {
+      {
+        id: crypto.randomUUID(),
+        titulo: 'Apartamento Aconchegante no Centro',
+        endereco: 'Rua das Flores, 123, Centro',
+        numeroQuartos: 2,
+        valorAluguel: 2500,
+        status: 'disponivel',
+        image: 'images/apartamento.jpg',
+        images: []
+      }, {
         id: crypto.randomUUID(),
         titulo: 'Casa Espaçosa com Quintal',
         endereco: 'Avenida das Árvores, 456, Bairro Verde',
@@ -107,6 +107,40 @@ export class ImovelService {
       ...imoveisAtuais,
     ]);
   }
+  /**
+    * Encontra e retorna um imóvel específico pelo seu ID.
+    * @param id O ID do imóvel a ser encontrado.
+    * @returns O imóvel encontrado ou `undefined` se não existir.
+    */
+  getImovelById(id: string) {
+    // A função 'find' do array é perfeita para isso.
+    // Ela percorre a lista e retorna o primeiro item que satisfaz a condição.
+    return this.imoveis().find(imovel => imovel.id === id);
+  }
+  /**
+  * Atualiza os dados de um imóvel existente.
+  * @param id O ID do imóvel a ser atualizado.
+  * @param imovelAtualizado O objeto com as novas informações do imóvel.
+  */
+  updateImovel(id: string, imovelAtualizado: Imovel): void {
+    this.#imoveis.update(imoveis => {
+      // Usamos .map() para criar um NOVO array com os dados atualizados
+      return imoveis.map(imovel => {
+        // Se o ID do imóvel atual for o mesmo que queremos editar...
+        if (imovel.id === id) {
+          // ...retorna o objeto com os novos dados.
+          return imovelAtualizado;
+        }
+        // Caso contrário, retorna o imóvel sem modificação.
+        return imovel;
+      });
+    });
+  }
+  deleteImovel(id: string): void {
+    // A função update recebe o valor atual e retorna o novo.
+    // O filter cria um novo array contendo apenas os imóveis
+    // cujo ID é DIFERENTE do ID que queremos excluir.
+    this.#imoveis.update(imoveis => imoveis.filter(imovel => imovel.id !== id));
 
-  // Futuramente, adicionaremos aqui os métodos para editar, excluir, etc.
+  }
 }

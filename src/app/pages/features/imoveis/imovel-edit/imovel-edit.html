@@ -1,0 +1,60 @@
+
+<div class="edit-container">
+  @if(imovel) {
+    <mat-card>
+      <mat-card-title>Editando Imóvel</mat-card-title>
+      <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="salvar()">
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Título</mat-label>
+            <input matInput formControlName="titulo">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Endereço</mat-label>
+            <input matInput formControlName="endereco">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Nº de Quartos</mat-label>
+            <input matInput type="number" formControlName="numeroQuartos">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Valor do Aluguel</mat-label>
+            <input matInput type="number" formControlName="valorAluguel">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="status">
+              @for(option of statusOptions; track option) {
+                <mat-option [value]="option">{{ option }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+          <div class="file-upload-container">
+    @if (form.get('image')?.value) {
+    <img [src]="form.get('image')?.value" alt="Pré-visualização da imagem" class="image-preview">
+    }
+
+     <button mat-stroked-button type="button" (click)="fileInput.click()">
+      <mat-icon>upload_file</mat-icon>
+      Alterar Imagem
+      </button>
+
+      <input hidden type="file" #fileInput (change)="onFileSelected($event)">
+      </div>
+        </form>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-stroked-button (click)="cancelar()">Cancelar</button>
+        <button mat-raised-button color="primary" (click)="salvar()" [disabled]="form.invalid">Salvar Alterações</button>
+        <button mat-stroked-button color="warn" (click)="deleteImovel()">Excluir</button>
+      </mat-card-actions>
+    </mat-card>
+  } @else {
+    <p>Imóvel não encontrado.</p>
+  }
+</div>

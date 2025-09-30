@@ -1,0 +1,36 @@
+<div class="detalhe-container">
+  @if (imovel(); as imovelData) {
+    <mat-card class="detalhe-card">
+      <mat-card-header>
+        <mat-card-title>{{ imovelData.titulo }}</mat-card-title>
+        <mat-card-subtitle>{{ imovelData.endereco }}</mat-card-subtitle>
+      </mat-card-header>
+      <img
+        mat-card-image
+        [src]="imovelData.image"
+        [alt]="'Foto de ' + imovelData.titulo"
+      />
+      <mat-card-content>
+        <h2>Detalhes do Imóvel</h2>
+        <p>
+          <mat-icon>king_bed</mat-icon>
+          <strong>Quartos:</strong> {{ imovelData.numeroQuartos }}
+        </p>
+        <p>
+          <mat-icon>payments</mat-icon>
+          <strong>Aluguel:</strong> {{ imovelData.valorAluguel | currency: 'BRL' }} / mês
+        </p>
+        <mat-chip-listbox>
+          <mat-chip [color]="imovelData.status === 'disponivel' ? 'primary' : 'warn'" selected>
+            {{ imovelData.status }}
+          </mat-chip>
+        </mat-chip-listbox>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-stroked-button routerLink="/imovel-list">VOLTAR PARA A LISTA</a>
+      </mat-card-actions>
+    </mat-card>
+  } @else {
+    <p>Imóvel não encontrado. <a routerLink="/imovel-list">Voltar para a lista</a>.</p>
+  }
+</div>

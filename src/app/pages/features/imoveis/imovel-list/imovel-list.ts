@@ -7,6 +7,9 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatButtonModule } from '@angular/material/button';
 
 import { ImovelService } from '../../../../core/services/imovel';
+import { RouterLink } from '@angular/router';
+import { MatIconModule } from "@angular/material/icon";
+
 
 
 @Component({
@@ -16,7 +19,7 @@ import { ImovelService } from '../../../../core/services/imovel';
   styleUrl: './imovel-list.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   // 2. Adicione os módulos importados aqui
-  imports: [CurrencyPipe, MatCardModule, MatChipsModule, MatButtonModule ],
+  imports: [CurrencyPipe, MatCardModule, MatChipsModule, MatButtonModule, RouterLink, MatIconModule],
 })
 export class ImovelListComponent {
   private imovelService = inject(ImovelService);

@@ -1,0 +1,37 @@
+:host {
+  display: block;
+  padding: 2rem;
+}
+
+.detalhe-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.detalhe-card {
+  mat-card-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  mat-card-content {
+    h2 {
+      margin-top: 1.5rem;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.5rem;
+    }
+
+    p {
+      display: flex;
+      align-items: center;
+      gap: 8px; /* Espaço entre o ícone e o texto */
+      font-size: 1.1rem;
+    }
+  }
+
+  mat-card-actions {
+    padding: 16px;
+    display: flex;
+    justify-content: flex-end;
+  }
+}

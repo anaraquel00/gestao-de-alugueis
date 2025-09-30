@@ -4,7 +4,7 @@ import { RouterModule } from "@angular/router";
 
 @Component({
   selector: 'app-cadastro',
-  imports: [MatToolbar, RouterModule],
+  imports: [RouterModule],
   templateUrl: './cadastro.html',
   styleUrl: './cadastro.scss'
 })
