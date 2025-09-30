@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "browser": "src/main.ts",
+           "outputPath": "dist/gestao-de-alugueis", "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -84,7 +84,10 @@
               "src/styles.scss"
             ]
           }
-        }
+        },
+        "deploy": {
+        "builder": "angular-cli-ghpages:deploy"
+       }
       }
     }
   }
