@@ -1,17 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, inject, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 @Component({
   selector: 'app-home',
   imports: [RouterModule, CommonModule, MatButtonModule],
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })
-export class Home implements AfterViewInit {
-  ngAfterViewInit(): void {
-    throw new Error('Method not implemented.');
-  }
+export class Home  {
+
   @ViewChild('bgVideo') videoElement!: ElementRef<HTMLVideoElement>;
    // Injetamos o ChangeDetectorRef para um controle mais fino, se necessário
   // Uma flag para garantir que só tentaremos dar play uma vez

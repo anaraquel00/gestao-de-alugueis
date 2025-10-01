@@ -4,6 +4,12 @@
   display: block;
   padding: 2rem;
 }
+.header-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
 
 .container {
   max-width: 1200px;
@@ -22,10 +28,12 @@ h1 {
 
 .imovel-card {
   border: 1px solid #e0e0e0;
+  align-items: center;
+  text-align: center;
   border-radius: 8px;
   padding: 1rem;
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   transition: box-shadow 0.3s ease;
 
   &:hover {
@@ -46,7 +54,8 @@ h1 {
 
   p {
     color: #666;
-    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
   }
 
   footer {
@@ -93,4 +102,18 @@ h1 {
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 2.5rem;
+}
+.filter-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap; // Permite que os filtros quebrem a linha em telas pequenas
+}
+
+.filter-search {
+  flex: 1 1 300px; // Ocupa o espaço disponível, com uma base de 300px
+}
+
+.filter-status {
+  flex: 1 1 150px; // Ocupa o espaço disponível, com uma base de 150px
 }

@@ -43,7 +43,7 @@ export class ImovelCadastroComponent {
       numeroQuartos: [null, [Validators.required, Validators.min(1)]],
       valorAluguel: [null, [Validators.required, Validators.min(1)]],
       status: ['disponivel', Validators.required],
-      image: ['images/default-placeholder.png', Validators.required] // Uma imagem padrão
+      image: ['images/placeholder.png', Validators.required] // Uma imagem padrão
     });
   }
 

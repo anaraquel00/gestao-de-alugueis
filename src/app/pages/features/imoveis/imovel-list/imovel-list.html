@@ -1,32 +1,54 @@
 <div class="container">
-  <h1>Imóveis Disponíveis</h1>
-   <a mat-fab extended color="primary" routerLink="/imovel/cadastro">
+  <div class="header-container">
+    <h1>Imóveis Disponíveis</h1>
+    <a mat-fab extended color="primary" routerLink="/imovel/cadastro">
       <mat-icon>add</mat-icon>
-      Adicionar novo imóvel
+      Novo Imóvel
     </a>
+  </div>
 
-  @if (imoveis().length > 0) {
+  <div class="filter-container">
+    <mat-form-field appearance="outline" class="filter-search">
+      <mat-label>Buscar por título ou endereço</mat-label>
+      <input
+        matInput
+        #searchInput
+        (input)="onSearchTermChange(searchInput.value)"
+        placeholder="Ex: Apartamento no centro"
+      />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="filter-status">
+      <mat-label>Filtrar por status</mat-label>
+      <mat-select (selectionChange)="onStatusChange($event.value)" value="todos">
+        <mat-option value="todos">Todos</mat-option>
+        <mat-option value="disponivel">Disponível</mat-option>
+        <mat-option value="alugado">Alugado</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  @if (filteredImoveis().length > 0) {
     <div class="imovel-grid">
-      @for (imovel of imoveis(); track imovel.id) {
+      @for (imovel of filteredImoveis(); track imovel.id) {
         <mat-card class="imovel-card">
           <mat-card-header>
             <mat-card-title>{{ imovel.titulo }}</mat-card-title>
             <mat-card-subtitle>{{ imovel.endereco }}</mat-card-subtitle>
           </mat-card-header>
-           <img
-         mat-card-image
-         [src]="imovel.image"
-         [alt]="'Foto de ' + imovel.titulo"
-         width="200"
-         height="100"
-          >
 
-        <mat-card-content>
+          <img
+            mat-card-image
+            [ngSrc]="imovel.image"
+            [alt]="'Foto de ' + imovel.titulo"
+            width="300"
+            height="225"
+          />
+
+          <mat-card-content>
             <mat-chip-listbox>
-              <mat-chip
-                [color]="imovel.status === 'disponivel' ? 'primary' : 'warn'"
-                selected
-              >
+              <mat-chip [color]="imovel.status === 'disponivel' ? 'primary' : 'warn'" selected>
                 {{ imovel.status }}
               </mat-chip>
             </mat-chip-listbox>
@@ -37,21 +59,17 @@
           </mat-card-content>
 
           <mat-card-actions>
-  <a mat-button [routerLink]="['/imovel/detalhe', imovel.id]">
-    VER DETALHES
-  </a>
-  <a mat-button color="primary" [routerLink]="['/imovel/edit', imovel.id]">
-    EDITAR
-  </a>
-</mat-card-actions>
+            <a mat-button [routerLink]="['/imovel/detalhe', imovel.id]"> VER DETALHES </a>
+            <a mat-button color="primary" [routerLink]="['/imovel/edit', imovel.id]"> EDITAR </a>
+          </mat-card-actions>
         </mat-card>
       }
     </div>
   } @else {
     <div class="empty-state">
-      <p>Nenhum imóvel cadastrado ainda.</p>
+      <p>Nenhum imóvel encontrado com os filtros aplicados.</p>
     </div>
-    }
-  </div>
+  }
+</div>
 
 
